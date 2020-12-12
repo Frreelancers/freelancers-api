@@ -9,7 +9,6 @@ import api from './api';
 import config from './config.json';
 
 const axios = require('axios')
-const mailgun = require('mailgun-js')({apiKey: "30038fb3103a0f0f4482cf280ef48459-4879ff27-0832e8fa", domain: "www.google.com"})
 
 let app = express();
 app.server = http.createServer(app);
@@ -84,9 +83,6 @@ initializeDb( db => {
 				subject: 'Panama Recieved',
 				text: 'Payment Recieved'
 			}
-			mailgun.messages().send(data, function (error, body) {
-				console.log(error);
-			});
 		})
 
 	})
